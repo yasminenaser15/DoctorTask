@@ -11,6 +11,10 @@ namespace DoctorTask.Controllers
         private readonly ApplicationDbContext db=new ApplicationDbContext();
         public IActionResult Index(AppointmentVM vm)
         {
+            if (vm.Appointement == null)
+            {
+                vm.Appointement = new Appointement();
+            }
             var doctorId = vm.Appointement.DoctorId;
 
             var doctor = db.Doctors
