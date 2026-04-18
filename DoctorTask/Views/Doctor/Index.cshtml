@@ -1,0 +1,85 @@
+﻿@using DoctorTask.ViewModels
+@model DoctorFilterViewModel
+ 
+<!-- Team Start -->
+<div class="container py-3">
+    <form method="get">
+        <input name="search" value="@Model.Search" placeholder="search" class="form-control d-inline w-auto" />
+        <select name="specialization" class="form-select d-inline w-auto">
+            <option value="">All Specilization</option>
+            @foreach (var s in Model.Specializations)
+            {
+                <option value="@s.Id" selected="@(Model.SpecializationId == s.Id)">
+                    @s.Name
+                </option>
+            }
+        </select>
+        <button class="btn btn-primary">filter</button>
+    </form>
+</div>
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+            <p class="d-inline-block border rounded-pill py-1 px-4">Doctors</p>
+            <h1>Our Experience Doctors</h1>
+        </div>
+        <div class="row">
+            @foreach (var item in Model.Doctors)
+            {
+                <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+                    <div class="team-item position-relative rounded overflow-hidden">
+                
+                        <div class="overflow-hidden">
+                            <img class="img-fluid w-100" src="~/images/@item.ImageUrl" alt="">
+                            </div>
+
+                            <div class="team-text bg-light text-center p-4">
+                                <h5>@item.Name</h5>
+                                <p class="text-primary">@item.Specilization.Name</p>
+                                <p class="text-primary">@item.Specilization.Description</p>
+                            <a href="/Appointment?id=@item.Id" class="btn btn-primary" >
+                                        Book Appointment
+                                    </a>
+                                <div class="team-social text-center">
+                                    <a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a>
+                                    <a class="btn btn-square" href=""><i class="fab fa-twitter"></i></a>
+                                   
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                }
+            </div>
+                
+               
+        </div>
+        <div class="row">
+            <div class="col-12 d-flex justify-content-center">
+                 
+                <nav aria-label="Page navigation example">
+                        
+                    <ul class="pagination">
+                        <li class="page-item"><a class="page-link" href="/Doctor?search=@Model.Search&specialization=@Model.SpecializationId&page=@(Model.Page - 1)">Previous</a></li>
+                        @for (var i = 1; i <= Model.TotalPages; i++)
+                        {
+                            if (Model.Page == i)
+                            {
+                                <li class="page-item active"><a class="page-link" href="/Doctor?page=@i">@i</a></li>
+                            }
+                            else
+                            {
+                                <li class="page-item"><a class="page-link" href="/Doctor?search=@Model.Search&specialization=@Model.SpecializationId&page=@i">@i</a></li>
+                            }
+                        }
+                        <li class="page-item"><a class="page-link" href="/Doctor?search=@Model.Search&specialization=@Model.SpecializationId&page=@(Model.Page + 1)">Next</a></li>
+                    </ul>
+                  
+                </nav>
+
+                
+            </div>
+        </div>
+    </div>
+    
+    <!-- Team End -->
