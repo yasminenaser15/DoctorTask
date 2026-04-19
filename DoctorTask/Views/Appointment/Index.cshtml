@@ -10,28 +10,28 @@
         <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
             <div class="bg-light rounded h-100 d-flex align-items-center p-5">
                 <form method="post" asp-action="Index" asp-controller="Appointment">
-                    <input type="hidden" name="Appointment.DoctorId" value="@Model.Doctor.Id" />
+                    <input type="hidden" name="Appointement.DoctorId" value="@Model.Doctor.Id" />
                     <div class="row g-3">
                         <div class="col-12 col-sm-6">
-                            <input name="Appointment.PatientName"  type="text" class="form-control border-0" placeholder="Your Name" style="height: 55px;">
+                            <input name="Appointement.PatientName"  type="text" class="form-control border-0" placeholder="Your Name" style="height: 55px;">
                         </div>
                         <div class="col-12 col-sm-6">
-                            <input name="Appointment.PatientEmail" type="email" class="form-control border-0" placeholder="Your Email" style="height: 55px;">
+                            <input name="Appointement.PatientEmail" type="email" class="form-control border-0" placeholder="Your Email" style="height: 55px;">
                         </div>
                         <div class="col-12 col-sm-6">
-                            <input name="Appointment.PatientPhone" type="text" class="form-control border-0" placeholder="Your Mobile" style="height: 55px;">
+                            <input name="Appointement.PatientPhone" type="text" class="form-control border-0" placeholder="Your Mobile" style="height: 55px;">
                         </div>
                         
                         <div class="col-12 col-sm-6">
                             <div class="col-12 col-sm-6">
-                                <input name="Appointment.AppointmentDate" type="date" class="form-control border-0" style="height: 55px;">
+                                <input name="Appointement.AppointmentDate" type="date" class="form-control border-0" style="height: 55px;">
         </div>
                         </div>
                         <div class="col-12 col-sm-6">
-                            <input name="Appointment.TimeSlot" type="time" step="1800" class="form-control border-0" style="height: 55px;">
+                            <input name="Appointement.TimeSlot" type="time" step="1800" class="form-control border-0" style="height: 55px;">
         </div>
                         <div class="col-12">
-                            <textarea name="Appointment.Problem" class="form-control border-0" rows="5" placeholder="Describe your problem"></textarea>
+                            <textarea name="Appointement.Problem" class="form-control border-0" rows="5" placeholder="Describe your problem"></textarea>
                         </div>
                         <div class="col-12">
                             <button class="btn btn-primary w-100 py-3" type="submit">Book Appointment</button>

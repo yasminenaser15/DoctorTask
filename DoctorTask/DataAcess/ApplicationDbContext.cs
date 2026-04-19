@@ -5,6 +5,10 @@ namespace DoctorTask.DataAcess
 {
     public class ApplicationDbContext : DbContext
     {
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+        {
+        }
+
         public DbSet<Doctor> Doctors { get; set; }
         public DbSet<Appointement> Appointements { get; set; }
         public DbSet<Specilization> specilizations { get; set; }

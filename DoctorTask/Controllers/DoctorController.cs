@@ -9,7 +9,11 @@ namespace DoctorTask.Controllers
 {
     public class DoctorController:Controller
     {
-        private readonly ApplicationDbContext dbContext=new ApplicationDbContext();
+        private readonly ApplicationDbContext dbContext;
+        public DoctorController(ApplicationDbContext dbContext)
+        {
+            this.dbContext = dbContext;
+        }
         public IActionResult Index(string search, int? specialization, int page = 1)
         {
             var doctors = dbContext.Doctors.Include(d => d.Specilization).AsQueryable();
